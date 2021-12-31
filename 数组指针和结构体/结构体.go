@@ -23,5 +23,10 @@ func main() {
 	leader2 := student{name: "甜梅梅", hight: 179.223}
 	fmt.Println("甜梅梅=", leader2)
 	//匿名结构体
-
+	comander := struct {
+		name string
+		age  int
+		work string
+	}{name: "亮晶晶", age: 49, work: "局长"}
+	fmt.Println("亮晶晶:", comander)
 }
