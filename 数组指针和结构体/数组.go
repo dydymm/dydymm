@@ -47,11 +47,10 @@ func main() {
 	fmt.Println(ddd)
 	fmt.Println(ddd[2])*/
 
-	/*//向函数传入数组
+	//向函数传入数组
 	var arr = [5]int{1, 2, 3, 4, 5}
 	modifyArr(&arr)
 	fmt.Println(arr)
-	*/
 	//数组赋值，只有长度，类型相同的数组之间才能赋值。
 }
 
