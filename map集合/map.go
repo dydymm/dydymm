@@ -8,7 +8,7 @@ func main()  {
 	//声明map
 	//Map 集合是无序的 key-value 数据结构。
 	var p1 map[int]string
-	p1 = make(map[int]string)
+	p1 = make(map[int]string)//使用make初始化
 	p1[1]="TOM"
 	fmt.Println("p1:",p1)
 
@@ -68,7 +68,7 @@ func main()  {
 		2:"alert",
 		3:"walion",
 	}
-	fmt.Println("data :",person)
+	fmt.Println("data:",person)
 
 	delete(person,2)
 	fmt.Println("data:",person)
@@ -76,4 +76,25 @@ func main()  {
 	person[2]="jack"
 	person[4]="kevin"
 	fmt.Println("data:",person)
+
+	//遍历map
+	human := map[int]string{
+		0:"张三",
+		1:"李四",
+		2:"王五",
+	}
+	fmt.Println("human =",human)
+	human[6]="大朗"
+	for k,v := range human{
+		fmt.Println(k,v)	
+	}
+	//只遍历键
+	for x := range human{
+		fmt.Println(x)	
+	}
+	//只遍历值
+	for _,y :=range human{
+		fmt.Println(y)
+	}
+
 }
