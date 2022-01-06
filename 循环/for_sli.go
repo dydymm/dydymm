@@ -12,4 +12,8 @@ func main()  {
 	person:=[]string{"TOM","Alean","Broun"}
 	fmt.Printf("len=%d,cap=%d,sli=%v\n",len(person),cap(person),person)
 //其他与数组一样
+
+for k, v := range person {
+	fmt.Printf("person[%d]: %s\n", k, v)
+}
 }
