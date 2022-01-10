@@ -9,8 +9,8 @@ import (
 
 //错误通常是最后一个返回值并且是 error 类型，它是一个内建的接口。
 func f1(arg int) (int, error) {
-	if arg == 59 {
-		return -1, errors.New("can't work in 42") //errors.New 使用给定的错误信息构造一个基本的 error 值。
+	if arg == 50 {
+		return -1, errors.New("can't work in 50") //errors.New 使用给定的错误信息构造一个基本的 error 值。
 	}
 	return arg + 3, nil //返回错误值为 nil 代表没有错误。
 }
@@ -23,11 +23,11 @@ type argError struct {
 
 //我们使用 &argError 语法来建立一个新的结构体， 并提供了 arg 和 prob 两个字段的值。
 func (e *argError) Error() string {
-	return fmt.Sprint("%d - %s", e.arg, e.prob)
+	return fmt.Sprintf("%d - %s", e.arg, e.prob)
 }
 
 func f2(arg int) (int, error) {
-	if arg == 59 {
+	if arg == 50 {
 		return -1, &argError{arg, "can't work at there"}
 	}
 	return arg + 9, nil
@@ -36,14 +36,14 @@ func f2(arg int) (int, error) {
 func main() {
 
 	//下面的两个循环测试了每一个会返回错误的函数。 注意，在 if 的同一行进行错误检查，是 Go 代码中的一种常见用法。
-	for _, i := range []int{3, 56} {
+	for _, i := range []int{3, 50} {
 		if r, e := f1(i); e != nil {
 			fmt.Println("f1 failed:", e)
 		} else {
 			fmt.Println("f1 work :", r)
 		}
 	}
-	for _, i := range []int{7, 42} {
+	for _, i := range []int{7, 50} {
 		if r, e := f2(i); e != nil {
 			fmt.Println("f2 failed:", e)
 		} else {
@@ -51,7 +51,7 @@ func main() {
 		}
 	}
 
-	_, e := f2(30)
+	_, e := f2(50)
 	if ae, ok := e.(*argError); ok {
 		fmt.Println(ae.arg)
 		fmt.Println(ae.prob)
